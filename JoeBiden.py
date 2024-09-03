@@ -25,7 +25,7 @@ def ship_ai(ship, info, game_map):
     """
     if not ship.stopped:
         if ship.stuck:
-            if ship.get_distance(ship.owner.x, ship.owner.y) > 120:
+            if ship.get_distance(ship.owner.x, ship.owner.y) > 80:
                 ship.convert_to_base()
             else:
                 ship.set_heading(np.random.random() * 180.0)
@@ -77,7 +77,7 @@ class PlayerAi:
         self.team = CREATOR  # Mandatory attribute
         #myinfo = info[self.team]
         self.build_queue = helpers.BuildQueue(
-            ["mine", "ship", "jet", "jet"], cycle=True
+            ["mine", "ship", "jet", "jet", "ship"], cycle=True
         )
 
         #self.build_queue_2 = helpers.BuildQueue(
