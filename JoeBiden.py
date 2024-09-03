@@ -51,7 +51,7 @@ def jet_ai(jet, info, game_map):
     if "target" in info:
         jet.goto(*info["target"])
 
-    if jet.get_distance(jet.owner.x, jet.owner.y) > 80:
+    elif jet.get_distance(jet.owner.x, jet.owner.y) > 80:
        jet.set_heading(np.random.random() * 360.0)
 
     
