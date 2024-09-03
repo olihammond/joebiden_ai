@@ -69,7 +69,7 @@ class PlayerAi:
         self.team = CREATOR  # Mandatory attribute
         #myinfo = info[self.team]
         self.build_queue = helpers.BuildQueue(
-            ["mine", "ship", "tank"], cycle=True
+            ["mine", "ship", "tank", "ship", "tank"], cycle=True
         )
 
         #self.build_queue_2 = helpers.BuildQueue(
