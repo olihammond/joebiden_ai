@@ -14,7 +14,7 @@ def tank_ai(tank, info, game_map):
     """
     if not tank.stopped:
         if tank.stuck:
-            tank.set_heading(np.random.random() * 120.0)
+            tank.set_heading(np.random.random() * 360.0)
         elif "target" in info:
             tank.goto(*info["target"])
 
@@ -25,13 +25,10 @@ def ship_ai(ship, info, game_map):
     """
     if not ship.stopped:
         if ship.stuck:
-            if ship.get_distance(ship.owner.x, ship.owner.y) > 80:
+            if ship.get_distance(ship.owner.x, ship.owner.y) > 40:
                 ship.convert_to_base()
             else:
-                ship.set_heading(np.random.random() * 180.0)
-
-
-
+                ship.set_heading(np.random.random() * 360.0)
 
 
 #def jet_ai(jet, info, game_map):
@@ -54,8 +51,6 @@ def jet_ai(jet, info, game_map):
     elif jet.get_distance(jet.owner.x, jet.owner.y) > 80:
        jet.set_heading(np.random.random() * 360.0)
 
-    
-
     #import time
     #timer = 0
     #starttime = time.time()
@@ -63,9 +58,6 @@ def jet_ai(jet, info, game_map):
     #if int(time.clock() - starttime) >= 30:
     #    jet.set_heading(np.random.random() * 90.0)
          #timer = 0
-
-
-    
 
 
 class PlayerAi:
@@ -77,7 +69,7 @@ class PlayerAi:
         self.team = CREATOR  # Mandatory attribute
         #myinfo = info[self.team]
         self.build_queue = helpers.BuildQueue(
-            ["mine", "ship", "jet", "jet", "ship"], cycle=True
+            ["mine", "ship", "tank"], cycle=True
         )
 
         #self.build_queue_2 = helpers.BuildQueue(
